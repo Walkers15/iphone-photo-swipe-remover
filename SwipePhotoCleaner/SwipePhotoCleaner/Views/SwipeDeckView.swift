@@ -75,7 +75,7 @@ struct SwipeDeckView: View {
     @State private var dragOffset: CGSize = .zero
     @State private var lastHapticState: SwipePreviewState = .neutral
 
-    private let previewThreshold: CGFloat = 44
+    private let previewThreshold: CGFloat = 18
     private let commitThreshold: CGFloat = 120
 
     var body: some View {
@@ -105,9 +105,6 @@ struct SwipeDeckView: View {
                     .overlay(alignment: .topTrailing) {
                         swipeBadge(title: swipePreviewState.isKeep ? swipePreviewState.title : "유지", color: .green)
                             .opacity(keepBadgeOpacity)
-                    }
-                    .overlay {
-                        swipePreviewOverlay
                     }
                     .offset(x: dragOffset.width)
                     .rotationEffect(.degrees(Double(dragOffset.width / 20)))
@@ -150,27 +147,31 @@ struct SwipeDeckView: View {
         min(max(Double(dragOffset.width / 70), 0), 1)
     }
 
+    private var revealedSurfaceAlignment: Alignment {
+        swipePreviewState.isDelete ? .trailing : .leading
+    }
+
+    private var revealedTextAlignment: HorizontalAlignment {
+        swipePreviewState.isDelete ? .trailing : .leading
+    }
+
     private var actionSurface: some View {
         RoundedRectangle(cornerRadius: 28)
             .fill(surfaceBackgroundColor)
-            .overlay(alignment: swipePreviewState.isDelete ? .leading : .trailing) {
+            .overlay(alignment: revealedSurfaceAlignment) {
                 HStack(spacing: 14) {
-                    if swipePreviewState.isDelete {
-                        actionSurfaceContent
-                        Spacer(minLength: 0)
-                    } else if swipePreviewState.isKeep {
-                        Spacer(minLength: 0)
+                    if swipePreviewState.isDelete || swipePreviewState.isKeep {
                         actionSurfaceContent
                     }
                 }
-                .padding(.horizontal, 22)
+                .padding(.horizontal, 14)
             }
             .scaleEffect(swipePreviewState == .neutral ? 0.98 : 1)
             .opacity(swipePreviewState == .neutral ? 0.35 : 1)
     }
 
     private var actionSurfaceContent: some View {
-        VStack(alignment: swipePreviewState.isDelete ? .leading : .trailing, spacing: 12) {
+        VStack(alignment: revealedTextAlignment, spacing: 12) {
             Image(systemName: swipePreviewState.icon)
                 .font(.title.weight(.bold))
                 .foregroundStyle(swipePreviewState.color)
@@ -178,7 +179,7 @@ struct SwipeDeckView: View {
                 .background(.white.opacity(0.92), in: Circle())
                 .scaleEffect(swipePreviewState == .deleteCommit || swipePreviewState == .keepCommit ? 1.08 : 1)
 
-            VStack(alignment: swipePreviewState.isDelete ? .leading : .trailing, spacing: 4) {
+            VStack(alignment: revealedTextAlignment, spacing: 4) {
                 Text(swipePreviewState.title)
                     .font(.title2.bold())
                 Text(swipePreviewState.subtitle)
@@ -187,35 +188,8 @@ struct SwipeDeckView: View {
             }
             .foregroundStyle(.white)
         }
-        .frame(maxWidth: 220)
+        .frame(maxWidth: 220, alignment: revealedTextAlignment == .leading ? .leading : .trailing)
         .opacity(swipePreviewState == .neutral ? 0 : 1)
-    }
-
-    private var swipePreviewOverlay: some View {
-        VStack {
-            Spacer()
-
-            VStack(spacing: 6) {
-                Text(swipePreviewState.title)
-                    .font(.headline.bold())
-                Text(swipePreviewState.subtitle)
-                    .font(.subheadline)
-                    .multilineTextAlignment(.center)
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 12)
-            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
-            .overlay {
-                RoundedRectangle(cornerRadius: 20)
-                    .strokeBorder(swipePreviewState.color.opacity(swipePreviewState == .neutral ? 0.12 : 0.4), lineWidth: 1)
-            }
-            .foregroundStyle(swipePreviewState == .neutral ? .primary : swipePreviewState.color)
-            .padding(.bottom, 26)
-            .opacity(swipePreviewState == .neutral ? 0.82 : 1)
-            .scaleEffect(swipePreviewState == .deleteCommit || swipePreviewState == .keepCommit ? 1.04 : 1)
-        }
-        .padding(20)
-        .allowsHitTesting(false)
     }
 
     private var surfaceBackgroundColor: Color {
