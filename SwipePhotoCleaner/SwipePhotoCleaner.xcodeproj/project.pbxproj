@@ -19,6 +19,7 @@
 	A0000001000000000000000A /* PermissionDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000A /* PermissionDeniedView.swift */; };
 	A0000001000000000000000D /* PhotoDaySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000E /* PhotoDaySession.swift */; };
 	A0000001000000000000000E /* SessionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000F /* SessionListView.swift */; };
+	A00000010000000000000010 /* DeleteCandidateGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000010 /* DeleteCandidateGridView.swift */; };
 	A0000001000000000000000B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000B /* Assets.xcassets */; };
 	A0000001000000000000000C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000C /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 	A0000011000000000000000D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 	A0000011000000000000000E /* PhotoDaySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDaySession.swift; sourceTree = "<group>"; };
 	A0000011000000000000000F /* SessionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListView.swift; sourceTree = "<group>"; };
+	A00000110000000000000010 /* DeleteCandidateGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCandidateGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			A00000110000000000000009 /* ThumbnailStripView.swift */,
 			A0000011000000000000000A /* PermissionDeniedView.swift */,
 			A0000011000000000000000F /* SessionListView.swift */,
+			A00000110000000000000010 /* DeleteCandidateGridView.swift */,
 		);
 		path = Views;
 		sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			A0000001000000000000000A /* PermissionDeniedView.swift in Sources */,
 			A0000001000000000000000D /* PhotoDaySession.swift in Sources */,
 			A0000001000000000000000E /* SessionListView.swift in Sources */,
+			A00000010000000000000010 /* DeleteCandidateGridView.swift in Sources */,
 		);
 		runOnlyForDeploymentPostprocessing = 0;
 	};

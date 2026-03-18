@@ -11,6 +11,7 @@ struct SwipeAction: Identifiable {
     let decision: SwipeDecision
     let previousIndex: Int
     let previousAssets: [SwipePhotoAsset]
+    let previousDeleteCandidates: [SwipePhotoAsset]
     let sessionDate: Date
     let sessionTitle: String
 }

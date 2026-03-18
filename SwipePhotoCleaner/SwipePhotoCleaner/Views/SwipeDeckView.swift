@@ -24,7 +24,7 @@ struct SwipeDeckView: View {
                         }
                     }
                     .overlay(alignment: .topLeading) {
-                        swipeBadge(title: "삭제", color: .red)
+                        swipeBadge(title: "삭제 후보", color: .red)
                             .opacity(max(0, -dragOffset.width / 80))
                     }
                     .overlay(alignment: .topTrailing) {
@@ -58,17 +58,26 @@ struct SwipeDeckView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(session.title)
                     .font(.title2.bold())
-                Text("같은 날짜 사진만 정리 중 · 왼쪽은 삭제, 오른쪽은 유지")
+                Text("왼쪽은 삭제 후보 추가, 오른쪽은 유지")
                     .foregroundStyle(.secondary)
             }
 
             Spacer()
 
-            Text(viewModel.progressText)
-                .font(.headline.monospacedDigit())
-                .padding(.horizontal, 12)
-                .padding(.vertical, 8)
-                .background(.thinMaterial, in: Capsule())
+            VStack(alignment: .trailing, spacing: 8) {
+                Label("삭제 후보 \(viewModel.deleteCandidateCountText)", systemImage: "trash")
+                    .font(.subheadline.weight(.semibold))
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(.red.opacity(0.12), in: Capsule())
+                    .foregroundStyle(.red)
+
+                Text(viewModel.progressText)
+                    .font(.headline.monospacedDigit())
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(.thinMaterial, in: Capsule())
+            }
         }
     }
 
@@ -77,7 +86,7 @@ struct SwipeDeckView: View {
             Button {
                 triggerSwipe(.delete)
             } label: {
-                Label("삭제", systemImage: "trash")
+                Label("삭제 후보", systemImage: "trash")
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)

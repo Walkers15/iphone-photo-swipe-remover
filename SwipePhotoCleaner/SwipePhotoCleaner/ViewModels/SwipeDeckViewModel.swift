@@ -14,6 +14,7 @@ final class SwipeDeckViewModel: ObservableObject {
     @Published private(set) var sessions: [PhotoDaySession] = []
     @Published private(set) var selectedSession: PhotoDaySession?
     @Published private(set) var currentIndex = 0
+    @Published private(set) var deleteCandidates: [SwipePhotoAsset] = []
     @Published private(set) var lastAction: SwipeAction?
     @Published var errorMessage: String?
 
@@ -45,6 +46,10 @@ final class SwipeDeckViewModel: ObservableObject {
 
     var hasSessionSelected: Bool {
         selectedSession != nil
+    }
+
+    var deleteCandidateCountText: String {
+        "\(deleteCandidates.count)"
     }
 
     func requestAccessIfNeeded() async {
@@ -79,6 +84,7 @@ final class SwipeDeckViewModel: ObservableObject {
         selectedSession = sessions.first(where: { $0.date == selectedDate })
         currentIndex = 0
         lastAction = nil
+        deleteCandidates.removeAll()
         errorMessage = nil
         hasLoaded = true
         authorizationState = .authorized
@@ -104,17 +110,13 @@ final class SwipeDeckViewModel: ObservableObject {
             decision: decision,
             previousIndex: currentIndex,
             previousAssets: selectedSession.assets,
+            previousDeleteCandidates: deleteCandidates,
             sessionDate: selectedSession.date,
             sessionTitle: selectedSession.title
         )
 
-        if decision == .delete {
-            do {
-                try await service.delete(asset: currentAsset.asset)
-            } catch {
-                errorMessage = "사진 삭제에 실패했습니다. 다시 시도해주세요."
-                return
-            }
+        if decision == .delete, !deleteCandidates.contains(currentAsset) {
+            deleteCandidates.append(currentAsset)
         }
 
         let updatedAssets = selectedSession.assets.filter { $0.id != currentAsset.id }
@@ -137,6 +139,7 @@ final class SwipeDeckViewModel: ObservableObject {
         )
 
         self.selectedSession = restoredSession
+        self.deleteCandidates = lastAction.previousDeleteCandidates
         if let index = sessions.firstIndex(where: { $0.date == restoredSession.date }) {
             sessions[index] = restoredSession
         } else {
@@ -144,12 +147,24 @@ final class SwipeDeckViewModel: ObservableObject {
             sessions.sort { $0.date > $1.date }
         }
         currentIndex = min(lastAction.previousIndex, max(restoredSession.assets.count - 1, 0))
-
-        if lastAction.decision == .delete {
-            errorMessage = "실제 삭제는 이미 요청되었습니다. 복구가 필요하면 사진 앱의 최근 삭제된 항목을 확인해주세요."
-        }
-
         self.lastAction = nil
+    }
+
+    func removeDeleteCandidate(_ asset: SwipePhotoAsset) {
+        deleteCandidates.removeAll { $0.id == asset.id }
+    }
+
+    func commitDeleteCandidates() async {
+        let assetsToDelete = deleteCandidates.map(\.asset)
+
+        do {
+            try await service.delete(assets: assetsToDelete)
+            deleteCandidates.removeAll()
+            lastAction = nil
+            await reload()
+        } catch {
+            errorMessage = "삭제 후보 사진을 삭제하지 못했습니다. 다시 시도해주세요."
+        }
     }
 
     private func updateSelectedSessionAssets(_ assets: [SwipePhotoAsset]) {

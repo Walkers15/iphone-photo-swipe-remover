@@ -5,7 +5,7 @@ protocol PhotoLibraryServicing {
     func requestAuthorization() async -> PHAuthorizationStatus
     func fetchDaySessions() async -> [PhotoDaySession]
     func requestImage(for asset: PHAsset, targetSize: CGSize) async -> UIImage?
-    func delete(asset: PHAsset) async throws
+    func delete(assets: [PHAsset]) async throws
 }
 
 enum PhotoLibraryError: Error {
@@ -74,10 +74,12 @@ final class PhotoLibraryService: PhotoLibraryServicing {
         }
     }
 
-    func delete(asset: PHAsset) async throws {
+    func delete(assets: [PHAsset]) async throws {
+        guard !assets.isEmpty else { return }
+
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             PHPhotoLibrary.shared().performChanges({
-                PHAssetChangeRequest.deleteAssets([asset] as NSArray)
+                PHAssetChangeRequest.deleteAssets(assets as NSArray)
             }, completionHandler: { success, error in
                 if let error {
                     continuation.resume(throwing: error)
