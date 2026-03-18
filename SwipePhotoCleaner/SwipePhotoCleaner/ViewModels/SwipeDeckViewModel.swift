@@ -84,7 +84,6 @@ final class SwipeDeckViewModel: ObservableObject {
         selectedSession = sessions.first(where: { $0.date == selectedDate })
         currentIndex = 0
         lastAction = nil
-        deleteCandidates.removeAll()
         errorMessage = nil
         hasLoaded = true
         authorizationState = .authorized

@@ -34,21 +34,19 @@ struct ContentView: View {
 
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     if viewModel.authorizationState == .authorized {
-                        if viewModel.hasSessionSelected {
-                            NavigationLink {
-                                DeleteCandidateGridView(viewModel: viewModel)
-                            } label: {
-                                ZStack(alignment: .topTrailing) {
-                                    Image(systemName: "square.grid.2x2")
+                        NavigationLink {
+                            DeleteCandidateGridView(viewModel: viewModel)
+                        } label: {
+                            ZStack(alignment: .topTrailing) {
+                                Image(systemName: "square.grid.2x2")
 
-                                    if !viewModel.deleteCandidates.isEmpty {
-                                        Text(viewModel.deleteCandidateCountText)
-                                            .font(.caption2.bold())
-                                            .padding(4)
-                                            .background(.red, in: Circle())
-                                            .foregroundStyle(.white)
-                                            .offset(x: 10, y: -10)
-                                    }
+                                if !viewModel.deleteCandidates.isEmpty {
+                                    Text(viewModel.deleteCandidateCountText)
+                                        .font(.caption2.bold())
+                                        .padding(4)
+                                        .background(.red, in: Circle())
+                                        .foregroundStyle(.white)
+                                        .offset(x: 10, y: -10)
                                 }
                             }
                         }
