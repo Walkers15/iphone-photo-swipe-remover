@@ -71,7 +71,7 @@ struct SwipeDeckView: View {
     }
 
     @ObservedObject var viewModel: SwipeDeckViewModel
-    let session: PhotoDaySession
+    let session: PhotoMonthSession
     @State private var dragOffset: CGSize = .zero
     @State private var lastHapticState: SwipePreviewState = .neutral
 
@@ -94,7 +94,7 @@ struct SwipeDeckView: View {
                             ContentUnavailableView(
                                 "세션 완료",
                                 systemImage: "checkmark.circle",
-                                description: Text("이 날짜의 사진을 모두 검토했습니다.")
+                                description: Text("이 달의 사진을 모두 검토했습니다.")
                             )
                         }
                     }

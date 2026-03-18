@@ -11,8 +11,8 @@ final class SwipeDeckViewModel: ObservableObject {
     }
 
     @Published private(set) var authorizationState: AuthorizationState = .loading
-    @Published private(set) var sessions: [PhotoDaySession] = []
-    @Published private(set) var selectedSession: PhotoDaySession?
+    @Published private(set) var sessions: [PhotoMonthSession] = []
+    @Published private(set) var selectedSession: PhotoMonthSession?
     @Published private(set) var currentIndex = 0
     @Published private(set) var deleteCandidates: [SwipePhotoAsset] = []
     @Published private(set) var lastAction: SwipeAction?
@@ -80,7 +80,7 @@ final class SwipeDeckViewModel: ObservableObject {
     func reload() async {
         authorizationState = .loading
         let selectedDate = selectedSession?.date
-        sessions = await service.fetchDaySessions()
+        sessions = await service.fetchMonthSessions()
         selectedSession = sessions.first(where: { $0.date == selectedDate })
         currentIndex = 0
         lastAction = nil
@@ -90,7 +90,7 @@ final class SwipeDeckViewModel: ObservableObject {
         authorizationState = .authorized
     }
 
-    func selectSession(_ session: PhotoDaySession) {
+    func selectSession(_ session: PhotoMonthSession) {
         selectedSession = session
         currentIndex = 0
         lastAction = nil
@@ -131,7 +131,7 @@ final class SwipeDeckViewModel: ObservableObject {
     func undoLastAction() {
         guard let lastAction else { return }
 
-        let restoredSession = PhotoDaySession(
+        let restoredSession = PhotoMonthSession(
             date: lastAction.sessionDate,
             title: lastAction.sessionTitle,
             subtitle: "사진 \(lastAction.previousAssets.count)장",
@@ -170,7 +170,7 @@ final class SwipeDeckViewModel: ObservableObject {
     private func updateSelectedSessionAssets(_ assets: [SwipePhotoAsset]) {
         guard let selectedSession else { return }
 
-        let updatedSession = PhotoDaySession(
+        let updatedSession = PhotoMonthSession(
             date: selectedSession.date,
             title: selectedSession.title,
             subtitle: "사진 \(assets.count)장",

@@ -1,6 +1,6 @@
 import Foundation
 
-struct PhotoDaySession: Identifiable, Equatable {
+struct PhotoMonthSession: Identifiable, Equatable {
     let date: Date
     let title: String
     let subtitle: String

@@ -22,7 +22,7 @@ struct ContentView: View {
                     PermissionDeniedView()
                 }
             }
-            .navigationTitle(viewModel.selectedSession == nil ? "날짜별 세션" : "사진 정리")
+            .navigationTitle(viewModel.selectedSession == nil ? "월별 세션" : "사진 정리")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     if viewModel.hasSessionSelected {

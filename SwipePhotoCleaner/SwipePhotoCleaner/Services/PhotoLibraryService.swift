@@ -3,7 +3,7 @@ import SwiftUI
 
 protocol PhotoLibraryServicing {
     func requestAuthorization() async -> PHAuthorizationStatus
-    func fetchDaySessions() async -> [PhotoDaySession]
+    func fetchMonthSessions() async -> [PhotoMonthSession]
     func requestImage(for asset: PHAsset, targetSize: CGSize) async -> UIImage?
     func delete(assets: [PHAsset]) async throws
 }
@@ -18,8 +18,7 @@ final class PhotoLibraryService: PhotoLibraryServicing {
     private let titleFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
+        formatter.dateFormat = "yyyy년 M월"
         return formatter
     }()
 
@@ -31,7 +30,7 @@ final class PhotoLibraryService: PhotoLibraryServicing {
         }
     }
 
-    func fetchDaySessions() async -> [PhotoDaySession] {
+    func fetchMonthSessions() async -> [PhotoMonthSession] {
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
@@ -41,15 +40,16 @@ final class PhotoLibraryService: PhotoLibraryServicing {
 
         result.enumerateObjects { asset, _, _ in
             let creationDate = asset.creationDate ?? .distantPast
-            let day = self.calendar.startOfDay(for: creationDate)
-            grouped[day, default: []].append(SwipePhotoAsset(asset: asset))
+            let components = self.calendar.dateComponents([.year, .month], from: creationDate)
+            let month = self.calendar.date(from: components) ?? creationDate
+            grouped[month, default: []].append(SwipePhotoAsset(asset: asset))
         }
 
-        return grouped.keys.sorted(by: >).map { day in
-            let assets = grouped[day, default: []]
-            return PhotoDaySession(
-                date: day,
-                title: self.titleFormatter.string(from: day),
+        return grouped.keys.sorted(by: >).map { month in
+            let assets = grouped[month, default: []]
+            return PhotoMonthSession(
+                date: month,
+                title: self.titleFormatter.string(from: month),
                 subtitle: "사진 \(assets.count)장",
                 assets: assets
             )

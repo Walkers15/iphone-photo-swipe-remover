@@ -7,9 +7,9 @@ struct SessionListView: View {
         List {
             Section {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("같은 날짜 세션으로 정리")
+                    Text("월별 세션으로 정리")
                         .font(.headline)
-                    Text("한 번에 하루치 사진만 검토해서 훨씬 덜 피곤하게 정리할 수 있습니다.")
+                    Text("한 번에 한 달치 사진만 묶어서 검토할 수 있습니다.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }

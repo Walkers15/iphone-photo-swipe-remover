@@ -17,7 +17,7 @@
 	A00000010000000000000008 /* SwipePhotoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000008 /* SwipePhotoCard.swift */; };
 	A00000010000000000000009 /* ThumbnailStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000009 /* ThumbnailStripView.swift */; };
 	A0000001000000000000000A /* PermissionDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000A /* PermissionDeniedView.swift */; };
-	A0000001000000000000000D /* PhotoDaySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000E /* PhotoDaySession.swift */; };
+	A0000001000000000000000D /* PhotoMonthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000E /* PhotoMonthSession.swift */; };
 	A0000001000000000000000E /* SessionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000F /* SessionListView.swift */; };
 	A00000010000000000000010 /* DeleteCandidateGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000010 /* DeleteCandidateGridView.swift */; };
 	A0000001000000000000000B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000B /* Assets.xcassets */; };
@@ -39,7 +39,7 @@
 	A0000011000000000000000B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 	A0000011000000000000000C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 	A0000011000000000000000D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-	A0000011000000000000000E /* PhotoDaySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDaySession.swift; sourceTree = "<group>"; };
+	A0000011000000000000000E /* PhotoMonthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMonthSession.swift; sourceTree = "<group>"; };
 	A0000011000000000000000F /* SessionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListView.swift; sourceTree = "<group>"; };
 	A00000110000000000000010 /* DeleteCandidateGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCandidateGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,7 +92,7 @@
 		children = (
 			A00000110000000000000003 /* SwipePhotoAsset.swift */,
 			A00000110000000000000004 /* SwipeDecision.swift */,
-			A0000011000000000000000E /* PhotoDaySession.swift */,
+			A0000011000000000000000E /* PhotoMonthSession.swift */,
 		);
 		path = Models;
 		sourceTree = "<group>";
@@ -214,7 +214,7 @@
 			A00000010000000000000008 /* SwipePhotoCard.swift in Sources */,
 			A00000010000000000000009 /* ThumbnailStripView.swift in Sources */,
 			A0000001000000000000000A /* PermissionDeniedView.swift in Sources */,
-			A0000001000000000000000D /* PhotoDaySession.swift in Sources */,
+			A0000001000000000000000D /* PhotoMonthSession.swift in Sources */,
 			A0000001000000000000000E /* SessionListView.swift in Sources */,
 			A00000010000000000000010 /* DeleteCandidateGridView.swift in Sources */,
 		);
