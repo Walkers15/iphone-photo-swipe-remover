@@ -24,7 +24,7 @@ final class PhotoLibraryService: PhotoLibraryServicing {
     }()
 
     func requestAuthorization() async -> PHAuthorizationStatus {
-        await withCheckedContinuation { continuation in
+        await withCheckedContinuation { (continuation: CheckedContinuation<PHAuthorizationStatus, Never>) in
             PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
                 continuation.resume(returning: status)
             }
@@ -41,7 +41,7 @@ final class PhotoLibraryService: PhotoLibraryServicing {
 
         result.enumerateObjects { asset, _, _ in
             let creationDate = asset.creationDate ?? .distantPast
-            let day = calendar.startOfDay(for: creationDate)
+            let day = self.calendar.startOfDay(for: creationDate)
             grouped[day, default: []].append(SwipePhotoAsset(asset: asset))
         }
 
@@ -49,7 +49,7 @@ final class PhotoLibraryService: PhotoLibraryServicing {
             let assets = grouped[day, default: []]
             return PhotoDaySession(
                 date: day,
-                title: titleFormatter.string(from: day),
+                title: self.titleFormatter.string(from: day),
                 subtitle: "사진 \(assets.count)장",
                 assets: assets
             )
@@ -57,13 +57,13 @@ final class PhotoLibraryService: PhotoLibraryServicing {
     }
 
     func requestImage(for asset: PHAsset, targetSize: CGSize) async -> UIImage? {
-        await withCheckedContinuation { continuation in
+        await withCheckedContinuation { (continuation: CheckedContinuation<UIImage?, Never>) in
             let options = PHImageRequestOptions()
             options.deliveryMode = .highQualityFormat
             options.resizeMode = .fast
             options.isNetworkAccessAllowed = true
 
-            imageManager.requestImage(
+            self.imageManager.requestImage(
                 for: asset,
                 targetSize: targetSize,
                 contentMode: .aspectFill,
@@ -75,7 +75,7 @@ final class PhotoLibraryService: PhotoLibraryServicing {
     }
 
     func delete(asset: PHAsset) async throws {
-        try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.deleteAssets([asset] as NSArray)
             }, completionHandler: { success, error in
