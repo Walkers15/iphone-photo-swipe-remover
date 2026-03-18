@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+	A00000010000000000000001 /* SwipePhotoCleanerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000001 /* SwipePhotoCleanerApp.swift */; };
+	A00000010000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000002 /* ContentView.swift */; };
+	A00000010000000000000003 /* SwipePhotoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000003 /* SwipePhotoAsset.swift */; };
+	A00000010000000000000004 /* SwipeDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000004 /* SwipeDecision.swift */; };
+	A00000010000000000000005 /* PhotoLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000005 /* PhotoLibraryService.swift */; };
+	A00000010000000000000006 /* SwipeDeckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000006 /* SwipeDeckViewModel.swift */; };
+	A00000010000000000000007 /* SwipeDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000007 /* SwipeDeckView.swift */; };
+	A00000010000000000000008 /* SwipePhotoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000008 /* SwipePhotoCard.swift */; };
+	A00000010000000000000009 /* ThumbnailStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000009 /* ThumbnailStripView.swift */; };
+	A0000001000000000000000A /* PermissionDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000A /* PermissionDeniedView.swift */; };
+	A0000001000000000000000D /* PhotoMonthSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000E /* PhotoMonthSession.swift */; };
+	A0000001000000000000000E /* SessionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000F /* SessionListView.swift */; };
+	A00000010000000000000010 /* DeleteCandidateGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000110000000000000010 /* DeleteCandidateGridView.swift */; };
+	A0000001000000000000000B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000B /* Assets.xcassets */; };
+	A0000001000000000000000C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0000011000000000000000C /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+	A00000110000000000000000 /* SwipePhotoCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipePhotoCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+	A00000110000000000000001 /* SwipePhotoCleanerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipePhotoCleanerApp.swift; sourceTree = "<group>"; };
+	A00000110000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+	A00000110000000000000003 /* SwipePhotoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipePhotoAsset.swift; sourceTree = "<group>"; };
+	A00000110000000000000004 /* SwipeDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDecision.swift; sourceTree = "<group>"; };
+	A00000110000000000000005 /* PhotoLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryService.swift; sourceTree = "<group>"; };
+	A00000110000000000000006 /* SwipeDeckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDeckViewModel.swift; sourceTree = "<group>"; };
+	A00000110000000000000007 /* SwipeDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDeckView.swift; sourceTree = "<group>"; };
+	A00000110000000000000008 /* SwipePhotoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipePhotoCard.swift; sourceTree = "<group>"; };
+	A00000110000000000000009 /* ThumbnailStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailStripView.swift; sourceTree = "<group>"; };
+	A0000011000000000000000A /* PermissionDeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionDeniedView.swift; sourceTree = "<group>"; };
+	A0000011000000000000000B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+	A0000011000000000000000C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+	A0000011000000000000000D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+	A0000011000000000000000E /* PhotoMonthSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMonthSession.swift; sourceTree = "<group>"; };
+	A0000011000000000000000F /* SessionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListView.swift; sourceTree = "<group>"; };
+	A00000110000000000000010 /* DeleteCandidateGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCandidateGridView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+	A00000210000000000000001 /* Frameworks */ = {
+		isa = PBXFrameworksBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+	A00000310000000000000001 = {
+		isa = PBXGroup;
+		children = (
+			A00000310000000000000002 /* SwipePhotoCleaner */,
+			A00000310000000000000003 /* Products */,
+		);
+		sourceTree = "<group>";
+	};
+	A00000310000000000000002 /* SwipePhotoCleaner */ = {
+		isa = PBXGroup;
+		children = (
+			A00000110000000000000001 /* SwipePhotoCleanerApp.swift */,
+			A00000110000000000000002 /* ContentView.swift */,
+			A00000310000000000000004 /* Models */,
+			A00000310000000000000005 /* Services */,
+			A00000310000000000000006 /* ViewModels */,
+			A00000310000000000000007 /* Views */,
+			A0000011000000000000000B /* Assets.xcassets */,
+			A00000310000000000000008 /* Preview Content */,
+			A0000011000000000000000D /* Info.plist */,
+		);
+		path = SwipePhotoCleaner;
+		sourceTree = "<group>";
+	};
+	A00000310000000000000003 /* Products */ = {
+		isa = PBXGroup;
+		children = (
+			A00000110000000000000000 /* SwipePhotoCleaner.app */,
+		);
+		name = Products;
+		sourceTree = "<group>";
+	};
+	A00000310000000000000004 /* Models */ = {
+		isa = PBXGroup;
+		children = (
+			A00000110000000000000003 /* SwipePhotoAsset.swift */,
+			A00000110000000000000004 /* SwipeDecision.swift */,
+			A0000011000000000000000E /* PhotoMonthSession.swift */,
+		);
+		path = Models;
+		sourceTree = "<group>";
+	};
+	A00000310000000000000005 /* Services */ = {
+		isa = PBXGroup;
+		children = (
+			A00000110000000000000005 /* PhotoLibraryService.swift */,
+		);
+		path = Services;
+		sourceTree = "<group>";
+	};
+	A00000310000000000000006 /* ViewModels */ = {
+		isa = PBXGroup;
+		children = (
+			A00000110000000000000006 /* SwipeDeckViewModel.swift */,
+		);
+		path = ViewModels;
+		sourceTree = "<group>";
+	};
+	A00000310000000000000007 /* Views */ = {
+		isa = PBXGroup;
+		children = (
+			A00000110000000000000007 /* SwipeDeckView.swift */,
+			A00000110000000000000008 /* SwipePhotoCard.swift */,
+			A00000110000000000000009 /* ThumbnailStripView.swift */,
+			A0000011000000000000000A /* PermissionDeniedView.swift */,
+			A0000011000000000000000F /* SessionListView.swift */,
+			A00000110000000000000010 /* DeleteCandidateGridView.swift */,
+		);
+		path = Views;
+		sourceTree = "<group>";
+	};
+	A00000310000000000000008 /* Preview Content */ = {
+		isa = PBXGroup;
+		children = (
+			A0000011000000000000000C /* Preview Assets.xcassets */,
+		);
+		path = "Preview Content";
+		sourceTree = "<group>";
+	};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+	A00000410000000000000001 /* SwipePhotoCleaner */ = {
+		isa = PBXNativeTarget;
+		buildConfigurationList = A00000510000000000000002 /* Build configuration list for PBXNativeTarget "SwipePhotoCleaner" */;
+		buildPhases = (
+			A00000210000000000000002 /* Sources */,
+			A00000210000000000000001 /* Frameworks */,
+			A00000210000000000000003 /* Resources */,
+		);
+		buildRules = (
+		);
+		dependencies = (
+		);
+		name = SwipePhotoCleaner;
+		productName = SwipePhotoCleaner;
+		productReference = A00000110000000000000000 /* SwipePhotoCleaner.app */;
+		productType = "com.apple.product-type.application";
+	};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+	A00000510000000000000001 /* Project object */ = {
+		isa = PBXProject;
+		attributes = {
+			BuildIndependentTargetsInParallel = 1;
+			LastSwiftUpdateCheck = 1600;
+			LastUpgradeCheck = 1600;
+			TargetAttributes = {
+				A00000410000000000000001 = {
+					CreatedOnToolsVersion = 16.0;
+				};
+			};
+		};
+		buildConfigurationList = A00000510000000000000003 /* Build configuration list for PBXProject "SwipePhotoCleaner" */;
+		compatibilityVersion = "Xcode 14.0";
+		developmentRegion = en;
+		hasScannedForEncodings = 0;
+		knownRegions = (
+			en,
+			Base,
+		);
+		mainGroup = A00000310000000000000001;
+		productRefGroup = A00000310000000000000003 /* Products */;
+		projectDirPath = "";
+		projectRoot = "";
+		targets = (
+			A00000410000000000000001 /* SwipePhotoCleaner */,
+		);
+	};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+	A00000210000000000000003 /* Resources */ = {
+		isa = PBXResourcesBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+			A0000001000000000000000B /* Assets.xcassets in Resources */,
+			A0000001000000000000000C /* Preview Assets.xcassets in Resources */,
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+	A00000210000000000000002 /* Sources */ = {
+		isa = PBXSourcesBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+			A00000010000000000000001 /* SwipePhotoCleanerApp.swift in Sources */,
+			A00000010000000000000002 /* ContentView.swift in Sources */,
+			A00000010000000000000003 /* SwipePhotoAsset.swift in Sources */,
+			A00000010000000000000004 /* SwipeDecision.swift in Sources */,
+			A00000010000000000000005 /* PhotoLibraryService.swift in Sources */,
+			A00000010000000000000006 /* SwipeDeckViewModel.swift in Sources */,
+			A00000010000000000000007 /* SwipeDeckView.swift in Sources */,
+			A00000010000000000000008 /* SwipePhotoCard.swift in Sources */,
+			A00000010000000000000009 /* ThumbnailStripView.swift in Sources */,
+			A0000001000000000000000A /* PermissionDeniedView.swift in Sources */,
+			A0000001000000000000000D /* PhotoMonthSession.swift in Sources */,
+			A0000001000000000000000E /* SessionListView.swift in Sources */,
+			A00000010000000000000010 /* DeleteCandidateGridView.swift in Sources */,
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+	A00000610000000000000001 /* Debug */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ALWAYS_SEARCH_USER_PATHS = NO;
+			CLANG_ENABLE_MODULES = YES;
+			CLANG_ENABLE_OBJC_ARC = YES;
+			CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+			CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+			COPY_PHASE_STRIP = NO;
+			DEBUG_INFORMATION_FORMAT = dwarf;
+			ENABLE_STRICT_OBJC_MSGSEND = YES;
+			ENABLE_TESTABILITY = YES;
+			GCC_C_LANGUAGE_STANDARD = gnu17;
+			GCC_NO_COMMON_BLOCKS = YES;
+			GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+			GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+			GCC_WARN_UNDECLARED_SELECTOR = YES;
+			GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+			GCC_WARN_UNUSED_FUNCTION = YES;
+			GCC_WARN_UNUSED_VARIABLE = YES;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			SDKROOT = iphoneos;
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = 1;
+		};
+		name = Debug;
+	};
+	A00000610000000000000002 /* Release */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ALWAYS_SEARCH_USER_PATHS = NO;
+			CLANG_ENABLE_MODULES = YES;
+			CLANG_ENABLE_OBJC_ARC = YES;
+			CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+			CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+			COPY_PHASE_STRIP = NO;
+			DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+			ENABLE_NS_ASSERTIONS = NO;
+			ENABLE_STRICT_OBJC_MSGSEND = YES;
+			GCC_C_LANGUAGE_STANDARD = gnu17;
+			GCC_NO_COMMON_BLOCKS = YES;
+			GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+			GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+			GCC_WARN_UNDECLARED_SELECTOR = YES;
+			GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+			GCC_WARN_UNUSED_FUNCTION = YES;
+			GCC_WARN_UNUSED_VARIABLE = YES;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			SDKROOT = iphoneos;
+			SWIFT_COMPILATION_MODE = wholemodule;
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = 1;
+			VALIDATE_PRODUCT = YES;
+		};
+		name = Release;
+	};
+	A00000610000000000000003 /* Debug */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			DEVELOPMENT_TEAM = "";
+			GENERATE_INFOPLIST_FILE = NO;
+			INFOPLIST_FILE = SwipePhotoCleaner/Info.plist;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			LD_RUNPATH_SEARCH_PATHS = (
+				"$(inherited)",
+				"@executable_path/Frameworks",
+			);
+			MARKETING_VERSION = 1.0;
+			PRODUCT_BUNDLE_IDENTIFIER = local.codex.SwipePhotoCleaner;
+			PRODUCT_NAME = "$(TARGET_NAME)";
+			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+			SWIFT_EMIT_LOC_STRINGS = YES;
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = 1;
+		};
+		name = Debug;
+	};
+	A00000610000000000000004 /* Release */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			DEVELOPMENT_TEAM = "";
+			GENERATE_INFOPLIST_FILE = NO;
+			INFOPLIST_FILE = SwipePhotoCleaner/Info.plist;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			LD_RUNPATH_SEARCH_PATHS = (
+				"$(inherited)",
+				"@executable_path/Frameworks",
+			);
+			MARKETING_VERSION = 1.0;
+			PRODUCT_BUNDLE_IDENTIFIER = local.codex.SwipePhotoCleaner;
+			PRODUCT_NAME = "$(TARGET_NAME)";
+			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+			SWIFT_EMIT_LOC_STRINGS = YES;
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = 1;
+		};
+		name = Release;
+	};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+	A00000510000000000000002 /* Build configuration list for PBXNativeTarget "SwipePhotoCleaner" */ = {
+		isa = XCConfigurationList;
+		buildConfigurations = (
+			A00000610000000000000003 /* Debug */,
+			A00000610000000000000004 /* Release */,
+		);
+		defaultConfigurationIsVisible = 0;
+		defaultConfigurationName = Release;
+	};
+	A00000510000000000000003 /* Build configuration list for PBXProject "SwipePhotoCleaner" */ = {
+		isa = XCConfigurationList;
+		buildConfigurations = (
+			A00000610000000000000001 /* Debug */,
+			A00000610000000000000002 /* Release */,
+		);
+		defaultConfigurationIsVisible = 0;
+		defaultConfigurationName = Release;
+	};
+/* End XCConfigurationList section */
+	};
+	rootObject = A00000510000000000000001 /* Project object */;
+}
